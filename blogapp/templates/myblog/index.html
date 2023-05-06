@@ -1,6 +1,33 @@
-{% extends "base.html" %}
-{% load static %}
-{% block content %}
-<h1>Hello</h1>
-    
+{% extends "base.html" %} {% load static %} {% block content %}
+<div class="bg-black text-white">Don't think too much about the UI the person is busy building Backend,</div>
+<form action="{% url 'logout' %}" method="post">
+  {% csrf_token %}
+  <input style="color: red" type="submit" value="Sign Out" />
+</form>
+<form class="flex flex-col" action="{% url 'add-post' %}" method="post">
+{% csrf_token %}
+  <label for="title">Title</label>
+  <input class="border-2 border-slate-200" type="text" name="title" id="" />
+  <label for="description">Description</label>
+  <textarea
+    class="border-2 border-slate-200"
+    name="description"
+    id="description"
+    cols="30"
+    rows="10"
+  ></textarea>
+  <input class="border-2 border-slate-200" type="submit" value="Post">
+</form>
+<div class="border-2 border-black" >
+{% for blog in blogs %}
+  <div>{{ blog.title }}</div>
+  <div>{{ blog.description }}</div>
+  <div class="border-2 border-black"></div>
+
+{% endfor %}
+
+</div>
+
+
+<script src="{% static 'js/test.js' %}"></script>
 {% endblock content %}

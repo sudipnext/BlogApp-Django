@@ -1,0 +1,87 @@
+{% extends 'base_auth.html' %} {% block content %}
+<section class="gradient-form h-full bg-neutral-200 dark:bg-neutral-700">
+  <div class="container h-full p-10">
+    <div
+      class="g-6 flex h-full flex-wrap items-center justify-center text-neutral-800 dark:text-neutral-200"
+    >
+      <div class="w-full">
+        <div class="block rounded-lg bg-white shadow-lg dark:bg-neutral-800">
+          <div class="g-0 lg:flex lg:flex-wrap">
+            <!-- Left column container-->
+            <div class="px-4 md:px-0 lg:w-6/12">
+              <div class="md:mx-6 md:p-12">
+                <!--Logo-->
+                <div class="text-center">
+                  <img
+                    class="mx-auto pt-4 w-48"
+                    src="https://3.bp.blogspot.com/-e3zIy2xKUtw/YM1ojSSmfrI/AAAAAAAAAB0/gpfD_mMrNaAINly-1l-eOA2k0QUOmDWfgCK4BGAYYCw/s257/IMG_20210619_092947.png"
+                    alt="logo"
+                  />
+                  <h4 class="mb-12 mt-4 pb-1 text-xl font-semibold">
+                    Welcome to EduHungry
+                  </h4>
+                </div>
+
+                <form method="post" action="{% url 'login' %}">
+                  {% csrf_token %}
+
+                  <p class="mb-4">Please login to your account</p>
+                  <div class="flex flex-col">
+                    <label for="username">Username</label>
+                    <input class="text-black" type="text" name="username" id="username" />
+                  </div>
+                  <div class="flex flex-col">
+                    <label for="password">Password</label>
+                    <input class="text-black" type="password" name="password" id="password" />
+                  </div>
+                  <!--Submit button-->
+                  <div class="mb-12 pb-1 pt-1 text-center">
+                    <div class="flex flex-col">
+                      <input class="border-2 border-slate-100 rounded-[5px] p-2 bg-gradient-to-r from-cyan-500 to-blue-500" type="submit" value="Login" />
+                      <a href="#!">Forgot password?</a>
+                    </div>
+                  </div>
+
+                  <!--Register button-->
+                  <div class="flex items-center justify-between pb-6">
+                    <p class="mb-0 mr-2">Don't have an account?</p>
+                    <a
+                      class="border-2 border-slate-100 rounded-[5px] p-2"
+                      href="{% url 'register' %}"
+                      >Register</a
+                    >
+                  </div>
+                </form>
+              </div>
+            </div>
+
+            <!-- Right column container with background and description-->
+            <div
+              class="flex items-center rounded-b-lg lg:w-6/12 lg:rounded-r-lg lg:rounded-bl-none"
+              style="
+                background: linear-gradient(
+                  to right,
+                  #ee7724,
+                  #d8363a,
+                  #dd3675,
+                  #b44593
+                );
+              "
+            >
+              <div class="px-4 py-6 text-white md:mx-6 md:p-12">
+                <h4 class="mb-6 text-xl font-semibold">
+                  Share Your Thoughts and Enjoy
+                </h4>
+                <p class="text-sm">
+                  EduHungry is a blog platform made with ❤️.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock content %}
